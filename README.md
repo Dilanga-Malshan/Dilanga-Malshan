@@ -32,15 +32,9 @@ I build AI-powered applications, backend APIs, and web experiences, with a focus
 <tr><td><strong>Frontend &amp; mobile</strong></td><td><img src="https://skillicons.dev/icons?i=angular,html,css,flutter&amp;theme=dark" alt="Angular · HTML · CSS · Flutter" /><br /><sub>Angular · HTML · CSS · Flutter</sub></td></tr>
 <tr><td><strong>Developer tools</strong></td><td><img src="https://skillicons.dev/icons?i=git,github,vscode&amp;theme=dark" alt="Git, GitHub, and VS Code" /><br /><sub>Git · GitHub · VS Code</sub></td></tr>
 <tr><td><strong>Testing &amp; linting</strong></td><td><img src="https://img.shields.io/badge/pytest-0D1117?style=for-the-badge&amp;logo=pytest&amp;logoColor=38BDF8" alt="pytest" /> <img src="https://img.shields.io/badge/Ruff-0D1117?style=for-the-badge&amp;logo=ruff&amp;logoColor=D7FF64" alt="Ruff" /></td></tr>
+<tr><td><strong>Software &amp; Design Tools</strong></td><td><img src="https://skillicons.dev/icons?i=androidstudio,idea,pycharm,webstorm&amp;theme=dark" alt="Android Studio, IntelliJ IDEA, PyCharm, and WebStorm" /><br /><sub>Android Studio · IntelliJ IDEA · PyCharm · WebStorm</sub></td></tr>
 </table>
 
-## Software & Design Tools
-
-<table>
-<tr><th>Category</th><th>Tools</th></tr>
-<tr><td><strong>Android development</strong></td><td><img src="https://skillicons.dev/icons?i=androidstudio&amp;theme=dark" alt="Android Studio" /><br /><sub>Android Studio</sub></td></tr>
-<tr><td><strong>JetBrains IDEs</strong></td><td><img src="https://skillicons.dev/icons?i=idea,pycharm,webstorm&amp;theme=dark" alt="IntelliJ IDEA, PyCharm, and WebStorm" /><br /><sub>IntelliJ IDEA · PyCharm · WebStorm</sub></td></tr>
-</table>
 
 ## GitHub stats
 
