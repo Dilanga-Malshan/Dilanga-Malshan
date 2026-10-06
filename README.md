@@ -1,6 +1,5 @@
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&amp;color=0:0D1117,50:164E63,100:38BDF8&amp;height=210&amp;section=header&amp;text=Dilanga%20Malshan&amp;fontSize=44&amp;fontColor=FFFFFF&amp;animation=fadeIn&amp;fontAlignY=38&amp;desc=GenAI%20Engineer%20%7C%20AI%20%26%20SE%20Undergraduate&amp;descSize=17&amp;descAlignY=58" alt="Dilanga Malshan — GenAI Engineer | AI &amp; SE Undergraduate" width="100%" />
-</p>
+<h1 align="center">Dilanga Malshan</h1>
+<p align="center"><strong>AI &amp; Software Engineering Undergraduate | Aspiring GenAI Engineer | Passionate about building AI-powered solutions</strong></p>
 
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&amp;size=18&amp;pause=1800&amp;color=38BDF8&amp;center=true&amp;vCenter=true&amp;width=650&amp;lines=Building+AI-powered+applications;Designing+reliable+backend+APIs;Turning+ideas+into+useful+software" alt="Building AI-powered applications. Designing reliable backend APIs. Turning ideas into useful software." />
