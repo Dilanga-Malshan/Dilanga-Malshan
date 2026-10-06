@@ -7,7 +7,7 @@
 
 <p align="center">
   <a href="https://github.com/Dilanga-Malshan?tab=repositories"><img src="https://img.shields.io/badge/Explore_Projects-0D1117?style=for-the-badge&amp;logo=github&amp;logoColor=38BDF8" alt="Explore projects" /></a>
-  <a href="https://www.topcoder.com/members/00100"><img src="https://img.shields.io/badge/Topcoder-0D1117?style=for-the-badge&amp;logo=topcoder&amp;logoColor=38BDF8" alt="Topcoder" /></a>
+  <a href="https://www.linkedin.com/in/diianga-malshan-7b5231282/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge" alt="Connect with Dilanga Malshan on LinkedIn" /></a>
 </p>
 
 ## About
@@ -30,7 +30,7 @@ I build AI-powered applications, backend APIs, and web experiences, with a focus
 <tr><td><strong>Backend &amp; data</strong></td><td><img src="https://skillicons.dev/icons?i=fastapi,postgres&amp;theme=dark" alt="FastAPI · PostgreSQL" /><br /><sub>FastAPI · PostgreSQL</sub></td></tr> 
 <tr><td><strong>Validation &amp; ORM</strong></td><td><img src="https://img.shields.io/badge/Pydantic-E92063?style=for-the-badge&amp;logo=pydantic&amp;logoColor=white" alt="Pydantic" /> <img src="https://img.shields.io/badge/SQLAlchemy-D71F00?style=for-the-badge&amp;logo=sqlalchemy&amp;logoColor=white" alt="SQLAlchemy" /></td></tr>
 <tr><td><strong>Frontend &amp; mobile</strong></td><td><img src="https://skillicons.dev/icons?i=angular,html,css,flutter&amp;theme=dark" alt="Angular · HTML · CSS · Flutter" /><br /><sub>Angular · HTML · CSS · Flutter</sub></td></tr>
-<tr><td><strong>Developer tools</strong></td><td><img src="https://skillicons.dev/icons?i=git,github,vscode,androidstudio,idea,pycharm,webstorm,clion,rider&amp;theme=dark" alt="Git, GitHub, VS Code, Android Studio, IntelliJ IDEA, PyCharm, WebStorm, CLion, and Rider" /><br /><sub>Git · GitHub · VS Code · Android Studio</sub><br /><sub>JetBrains IDEs: IntelliJ IDEA · PyCharm · WebStorm · CLion · Rider</sub></td></tr>
+<tr><td><strong>Software &amp; Design Tools</strong></td><td><img src="https://skillicons.dev/icons?i=git,github,vscode,androidstudio,idea,pycharm,webstorm&amp;theme=dark" alt="Git, GitHub, VS Code, Android Studio, IntelliJ IDEA, PyCharm, and WebStorm" /><br /><sub>Git · GitHub · VS Code · Android Studio</sub><br /><sub>JetBrains IDEs: IntelliJ IDEA · PyCharm · WebStorm</sub></td></tr>
 <tr><td><strong>Testing &amp; linting</strong></td><td><img src="https://img.shields.io/badge/pytest-0D1117?style=for-the-badge&amp;logo=pytest&amp;logoColor=38BDF8" alt="pytest" /> <img src="https://img.shields.io/badge/Ruff-0D1117?style=for-the-badge&amp;logo=ruff&amp;logoColor=D7FF64" alt="Ruff" /></td></tr>
 </table>
 
@@ -53,8 +53,6 @@ I build AI-powered applications, backend APIs, and web experiences, with a focus
 | --- | --- | --- |
 | [AI Movie Finder](https://github.com/Dilanga-Malshan/Movie-Finder-project) | Local AI movie analysis and recommendations | Python · FastAPI · LangChain · Ollama |
 | [Gen AI 101](https://github.com/Dilanga-Malshan/gen-ai-101) | Learning examples for chat, streaming, and tool calling | JavaScript · Node.js · AI inference |
-
-<!-- LinkedIn: add the verified profile URL as a linked badge in the header when supplied. -->
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&amp;color=0:0D1117,50:164E63,100:38BDF8&amp;height=100&amp;section=footer" alt="" width="100%" />
