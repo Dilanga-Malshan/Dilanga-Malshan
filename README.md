@@ -1,4 +1,4 @@
-<h1 align="center">Dilanga Malshan</h1>
+<h1 align="center">Hi, I'm Dilanga Malshan 👋</h1>
 <p align="center"><strong>AI &amp; Software Engineering Undergraduate | Aspiring GenAI Engineer | Passionate about building AI-powered solutions</strong></p>
 
 <p align="center">
@@ -7,7 +7,7 @@
 
 <p align="center">
   <a href="https://github.com/Dilanga-Malshan?tab=repositories"><img src="https://img.shields.io/badge/Explore_Projects-0D1117?style=for-the-badge&amp;logo=github&amp;logoColor=38BDF8" alt="Explore projects" /></a>
-  <a href="https://www.linkedin.com/in/diianga-malshan-7b5231282/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge" alt="Connect with Dilanga Malshan on LinkedIn" /></a>
+  <a href="https://www.linkedin.com/in/diianga-malshan-7b5231282/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white" alt="Connect with Dilanga Malshan on LinkedIn" /></a>
 </p>
 
 ## About
@@ -30,8 +30,16 @@ I build AI-powered applications, backend APIs, and web experiences, with a focus
 <tr><td><strong>Backend &amp; data</strong></td><td><img src="https://skillicons.dev/icons?i=fastapi,postgres&amp;theme=dark" alt="FastAPI · PostgreSQL" /><br /><sub>FastAPI · PostgreSQL</sub></td></tr> 
 <tr><td><strong>Validation &amp; ORM</strong></td><td><img src="https://img.shields.io/badge/Pydantic-E92063?style=for-the-badge&amp;logo=pydantic&amp;logoColor=white" alt="Pydantic" /> <img src="https://img.shields.io/badge/SQLAlchemy-D71F00?style=for-the-badge&amp;logo=sqlalchemy&amp;logoColor=white" alt="SQLAlchemy" /></td></tr>
 <tr><td><strong>Frontend &amp; mobile</strong></td><td><img src="https://skillicons.dev/icons?i=angular,html,css,flutter&amp;theme=dark" alt="Angular · HTML · CSS · Flutter" /><br /><sub>Angular · HTML · CSS · Flutter</sub></td></tr>
-<tr><td><strong>Software &amp; Design Tools</strong></td><td><img src="https://skillicons.dev/icons?i=git,github,vscode,androidstudio,idea,pycharm,webstorm&amp;theme=dark" alt="Git, GitHub, VS Code, Android Studio, IntelliJ IDEA, PyCharm, and WebStorm" /><br /><sub>Git · GitHub · VS Code · Android Studio</sub><br /><sub>JetBrains IDEs: IntelliJ IDEA · PyCharm · WebStorm</sub></td></tr>
+<tr><td><strong>Developer tools</strong></td><td><img src="https://skillicons.dev/icons?i=git,github,vscode&amp;theme=dark" alt="Git, GitHub, and VS Code" /><br /><sub>Git · GitHub · VS Code</sub></td></tr>
 <tr><td><strong>Testing &amp; linting</strong></td><td><img src="https://img.shields.io/badge/pytest-0D1117?style=for-the-badge&amp;logo=pytest&amp;logoColor=38BDF8" alt="pytest" /> <img src="https://img.shields.io/badge/Ruff-0D1117?style=for-the-badge&amp;logo=ruff&amp;logoColor=D7FF64" alt="Ruff" /></td></tr>
+</table>
+
+## Software & Design Tools
+
+<table>
+<tr><th>Category</th><th>Tools</th></tr>
+<tr><td><strong>Android development</strong></td><td><img src="https://skillicons.dev/icons?i=androidstudio&amp;theme=dark" alt="Android Studio" /><br /><sub>Android Studio</sub></td></tr>
+<tr><td><strong>JetBrains IDEs</strong></td><td><img src="https://skillicons.dev/icons?i=idea,pycharm,webstorm&amp;theme=dark" alt="IntelliJ IDEA, PyCharm, and WebStorm" /><br /><sub>IntelliJ IDEA · PyCharm · WebStorm</sub></td></tr>
 </table>
 
 ## GitHub stats
