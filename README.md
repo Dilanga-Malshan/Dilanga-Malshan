@@ -15,13 +15,12 @@
 
 ## About me
 
-I'm an AI & Software Engineering undergraduate at **C-Clarke International Institute of Digital Sciences**, interested in turning real-world problems into useful software.
+I build AI-powered applications, backend APIs, and web experiences, with a focus on solving practical problems through reliable software.
 
 - 🤖 Working with **LLM applications, AI agents, and structured outputs** using LangChain.
 - ⚙️ Building backend APIs with **FastAPI, Pydantic, and SQLAlchemy**.
 - 🌐 Developing web applications with **Angular and TypeScript**.
 - 🧪 Working with **PostgreSQL, pytest, and Ruff** to build and maintain backend services.
-- 📚 **PCEP™ – Certified Entry-Level Python Programmer**.
 
 ## Tech stack
 
