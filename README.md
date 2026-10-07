@@ -7,6 +7,7 @@
 
 <p align="center">
   <a href="https://github.com/Dilanga-Malshan?tab=repositories"><img src="https://img.shields.io/badge/Explore_Projects-0D1117?style=for-the-badge&amp;logo=github&amp;logoColor=38BDF8" alt="Explore projects" /></a>
+  <a href="https://dilanga-malshan-portfolio.dilangamalshan15.chatgpt.site/"><img src="https://img.shields.io/badge/Portfolio-111310?style=for-the-badge&amp;logo=googlechrome&amp;logoColor=C8F77C" alt="Visit Dilanga Malshan’s portfolio" /></a>
   <a href="https://www.linkedin.com/in/diianga-malshan-7b5231282/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white" alt="Connect with Dilanga Malshan on LinkedIn" /></a>
 </p>
 
