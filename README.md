@@ -50,6 +50,14 @@ I build AI-powered applications, backend APIs, and web experiences, with a focus
 
 <sub>Language statistics reflect public repository code, not proficiency. Cards are provided by external services and may occasionally be unavailable.</sub>
 
+## GitHub contributions
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/contribution-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="assets/contribution-snake.svg" />
+  <img src="assets/contribution-snake.svg" alt="Animated snake moving across Dilanga Malshan’s GitHub contribution calendar" width="100%" />
+</picture>
+
 ## Selected projects
 
 | Project | Focus | Stack |
