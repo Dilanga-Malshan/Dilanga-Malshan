@@ -17,7 +17,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/contribution-snake-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="assets/contribution-snake.svg" />
-    <img src="assets/contribution-snake.svg" alt="Animated snake moving across Dilanga Malshan’s GitHub contribution calendar" width="100%" />
+    <img src="assets/contribution-snake.svg" alt="Dilanga Malshan’s GitHub contribution calendar with a snake animation, contribution totals, active days, busiest day, and monthly activity" width="100%" />
   </picture>
 </p>
 
