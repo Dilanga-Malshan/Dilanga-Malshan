@@ -30,21 +30,116 @@ jobs:
             assets/contribution-snake.svg?palette=github-light&color_snake=purple
             assets/contribution-snake-dark.svg?palette=github-dark&color_snake=purple
 
-      - name: Honor reduced motion preferences
+      - name: Add contribution activity totals
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_OWNER: ${{ github.repository_owner }}
         run: |
           python3 - <<'PY'
+          import json
+          import os
+          import re
+          from collections import Counter
+          from datetime import date
           from pathlib import Path
+          from urllib.request import Request, urlopen
 
-          reduced_motion = """
-          @media (prefers-reduced-motion: reduce) {
-            .c, .u { animation: none !important; }
-            .s { display: none; }
+          query = """
+          query ($login: String!) {
+            user(login: $login) {
+              contributionsCollection {
+                contributionCalendar {
+                  totalContributions
+                  weeks { contributionDays { date contributionCount } }
+                }
+              }
+            }
           }
           """
-          for filename in ("contribution-snake.svg", "contribution-snake-dark.svg"):
+          request = Request(
+              "https://api.github.com/graphql",
+              data=json.dumps({"query": query, "variables": {"login": os.environ["GH_OWNER"]}}).encode(),
+              headers={
+                  "Authorization": f"Bearer {os.environ['GH_TOKEN']}",
+                  "Content-Type": "application/json",
+                  "User-Agent": "profile-contribution-calendar",
+              },
+          )
+          with urlopen(request, timeout=20) as response:
+              payload = json.load(response)
+          if payload.get("errors"):
+              raise RuntimeError("GitHub could not return the contribution calendar.")
+
+          calendar = payload["data"]["user"]["contributionsCollection"]["contributionCalendar"]
+          days = [day for week in calendar["weeks"] for day in week["contributionDays"]]
+          active_days = sum(day["contributionCount"] > 0 for day in days)
+          busiest_day = max((day["contributionCount"] for day in days), default=0)
+          monthly = Counter()
+          for day in days:
+              monthly[day["date"][:7]] += day["contributionCount"]
+          months = sorted(monthly)[-12:]
+          peak_month = max((monthly[month] for month in months), default=0) or 1
+
+          for filename, ink, muted, accent in (
+              ("contribution-snake.svg", "#1F2328", "#59636E", "#1F883D"),
+              ("contribution-snake-dark.svg", "#F0F6FC", "#9198A1", "#3FB950"),
+          ):
               path = Path("assets") / filename
               svg = path.read_text(encoding="utf-8")
-              path.write_text(svg.replace("</style>", reduced_motion + "</style>", 1), encoding="utf-8")
+              size = re.search(
+                  r'viewBox="(-?\d+) (-?\d+) (\d+) (\d+)" width="\d+" height="\d+"',
+                  svg,
+              )
+              if size is None:
+                  raise ValueError(f"Unexpected SVG layout in {path}")
+              left, top, width, height = map(int, size.groups())
+              stats_y = top + height + 12
+              chart_y = stats_y + 86
+              step_width = (width - 40) / max(len(months), 1)
+
+              metrics = []
+              for index, (number, label) in enumerate((
+                  (calendar["totalContributions"], "Contributions"),
+                  (active_days, "Active days"),
+                  (busiest_day, "Most in one day"),
+              )):
+                  x = left + width * (index + 0.5) / 3
+                  metrics.append(
+                      f'<text x="{x}" y="{stats_y}" class="metric">{number:,}</text>'
+                      f'<text x="{x}" y="{stats_y + 19}">{label}</text>'
+                  )
+
+              bars = []
+              for index, month in enumerate(months):
+                  count = monthly[month]
+                  month_label = date.fromisoformat(month + "-01").strftime("%b")
+                  x = left + 20 + step_width * (index + 0.5)
+                  bar_height = max(2, 28 * count / peak_month)
+                  bars.append(
+                      f'<rect x="{x - 14}" y="{chart_y - bar_height}" width="28"'
+                      f' height="{bar_height}" rx="3" fill="{accent}"'
+                      f' opacity="{1 if count else 0.25}"><title>{month}: {count} contributions</title></rect>'
+                      f'<text x="{x}" y="{chart_y + 17}">{month_label}</text>'
+                  )
+
+              styles = f"""
+              .activity {{ fill: {muted}; font: 13px system-ui, sans-serif; text-anchor: middle; }}
+              .activity .metric {{ fill: {ink}; font-size: 22px; font-weight: 600; }}
+              @media (prefers-reduced-motion: reduce) {{
+                .c, .u {{ animation: none !important; }}
+                .s {{ display: none; }}
+              }}
+              """
+              activity = '<g class="activity">' + "".join(metrics + bars) + "</g>"
+              height += 130
+              svg = svg.replace(
+                  size.group(),
+                  f'viewBox="{left} {top} {width} {height}" width="{width}" height="{height}"',
+                  1,
+              )
+              svg = svg.replace("</style>", styles + "</style>", 1)
+              svg = svg.replace("</svg>", activity + "</svg>", 1)
+              path.write_text(svg, encoding="utf-8")
           PY
 
       - name: Commit updated animation
