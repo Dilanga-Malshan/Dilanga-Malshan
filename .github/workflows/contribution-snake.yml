@@ -33,6 +33,7 @@ jobs:
       - name: Style the contribution calendar
         run: |
           python3 - <<'PY'
+          import re
           from pathlib import Path
 
           themes = {
@@ -47,8 +48,14 @@ jobs:
           for filename, (background, tint, border, blue, cyan, glow) in themes.items():
               path = Path("assets") / filename
               svg = path.read_text(encoding="utf-8")
-              if "</style>" not in svg or 'viewBox="-16 -32 880 192"' not in svg:
+              dimensions = re.search(
+                  r'viewBox="(-?\d+) (-?\d+) (\d+) (\d+)" width="\d+" height="\d+"',
+                  svg,
+              )
+              if dimensions is None or "</style>" not in svg:
                   raise ValueError(f"Unexpected SVG layout in {path}")
+              left, top, width, height = map(int, dimensions.groups())
+              height += 16
 
               styles = f"""
               .c {{ rx: 3px; ry: 3px; stroke: none; }}
@@ -72,12 +79,12 @@ jobs:
                   <stop offset="1" stop-color="{blue}"/>
                 </linearGradient>
               </defs>
-              <rect x="-15" y="-31" width="878" height="206" rx="18"
+              <rect x="{left + 1}" y="{top + 1}" width="{width - 2}" height="{height - 2}" rx="18"
                     fill="url(#calendar-panel)" stroke="{border}"/>
               """
               svg = svg.replace(
-                  'viewBox="-16 -32 880 192" width="880" height="192"',
-                  'viewBox="-16 -32 880 208" width="880" height="208"',
+                  dimensions.group(),
+                  f'viewBox="{left} {top} {width} {height}" width="{width}" height="{height}"',
                   1,
               )
               svg = svg.replace("</style>", styles + "</style>" + panel, 1)
