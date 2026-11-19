@@ -58,13 +58,6 @@ I build AI-powered applications, backend APIs, and web experiences, with a focus
   <img src="assets/contribution-snake.svg" alt="Animated snake moving across Dilanga Malshan’s GitHub contribution calendar" width="100%" />
 </picture>
 
-## Selected projects
-
-| Project | Focus | Stack |
-| --- | --- | --- |
-| [AI Movie Finder](https://github.com/Dilanga-Malshan/Movie-Finder-project) | Local AI movie analysis and recommendations | Python · FastAPI · LangChain · Ollama |
-| [Gen AI 101](https://github.com/Dilanga-Malshan/gen-ai-101) | Learning examples for chat, streaming, and tool calling | JavaScript · Node.js · AI inference |
-
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&amp;color=0:0D1117,50:164E63,100:38BDF8&amp;height=100&amp;section=footer" alt="" width="100%" />
 </p>
