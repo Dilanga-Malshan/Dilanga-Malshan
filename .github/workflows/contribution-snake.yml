@@ -1,0 +1,42 @@
+name: Contribution snake
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/contribution-snake.yml']
+  schedule:
+    - cron: '23 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: contribution-snake
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: main
+
+      - uses: Platane/snk/svg-only@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3.5.0
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            assets/contribution-snake.svg?palette=github-light&color_snake=#0284C7
+            assets/contribution-snake-dark.svg?palette=github-dark&color_snake=#38BDF8
+
+      - name: Commit updated animation
+        run: |
+          git add assets/contribution-snake.svg assets/contribution-snake-dark.svg
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' \
+              -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              commit -m 'Refresh contribution snake animation'
+          git push origin HEAD:main
