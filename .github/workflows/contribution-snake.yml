@@ -27,8 +27,62 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            assets/contribution-snake.svg?palette=github-light&color_snake=#0284C7
-            assets/contribution-snake-dark.svg?palette=github-dark&color_snake=#38BDF8
+            assets/contribution-snake.svg?palette=github-light&color_snake=#2563EB&color_dots=#E2EAF6,#BFDBFE,#93C5FD,#3B82F6,#1D4ED8
+            assets/contribution-snake-dark.svg?palette=github-dark&color_snake=#38BDF8&color_dots=#1B2C44,#164E63,#0369A1,#0EA5E9,#67E8F9
+
+      - name: Style the contribution calendar
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          themes = {
+              "contribution-snake.svg": (
+                  "#F8FBFF", "#EDF4FF", "#CDDBF0", "#1D4ED8", "#0284C7", "#0369A1",
+              ),
+              "contribution-snake-dark.svg": (
+                  "#0E192B", "#121F36", "#293E5F", "#38BDF8", "#67E8F9", "#7DD3FC",
+              ),
+          }
+
+          for filename, (background, tint, border, blue, cyan, glow) in themes.items():
+              path = Path("assets") / filename
+              svg = path.read_text(encoding="utf-8")
+              if "</style>" not in svg or 'viewBox="-16 -32 880 192"' not in svg:
+                  raise ValueError(f"Unexpected SVG layout in {path}")
+
+              styles = f"""
+              .c {{ rx: 3px; ry: 3px; stroke: none; }}
+              .s {{ filter: drop-shadow(0 0 2px {glow}); }}
+              .s.s0 {{ fill: url(#snake-head) {blue}; }}
+              .s.s2 {{ opacity: .85; }}
+              .s.s3 {{ opacity: .7; }}
+              @media (prefers-reduced-motion: reduce) {{
+                .c, .u {{ animation: none !important; }}
+                .s {{ display: none; }}
+              }}
+              """
+              panel = f"""
+              <defs>
+                <linearGradient id="calendar-panel" x2="100%" y2="100%">
+                  <stop stop-color="{background}"/>
+                  <stop offset="1" stop-color="{tint}"/>
+                </linearGradient>
+                <linearGradient id="snake-head" x2="100%" y2="100%">
+                  <stop stop-color="{cyan}"/>
+                  <stop offset="1" stop-color="{blue}"/>
+                </linearGradient>
+              </defs>
+              <rect x="-15" y="-31" width="878" height="206" rx="18"
+                    fill="url(#calendar-panel)" stroke="{border}"/>
+              """
+              svg = svg.replace(
+                  'viewBox="-16 -32 880 192" width="880" height="192"',
+                  'viewBox="-16 -32 880 208" width="880" height="208"',
+                  1,
+              )
+              svg = svg.replace("</style>", styles + "</style>" + panel, 1)
+              path.write_text(svg, encoding="utf-8")
+          PY
 
       - name: Commit updated animation
         run: |
