@@ -27,8 +27,8 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            assets/contribution-snake.svg?palette=github-light&color_snake=#2563EB&color_dots=#E2EAF6,#BFDBFE,#93C5FD,#3B82F6,#1D4ED8
-            assets/contribution-snake-dark.svg?palette=github-dark&color_snake=#38BDF8&color_dots=#1B2C44,#164E63,#0369A1,#0EA5E9,#67E8F9
+            assets/contribution-snake.svg?palette=github-light&color_snake=#1F883D
+            assets/contribution-snake-dark.svg?palette=github-dark&color_snake=#3FB950
 
       - name: Style the contribution calendar
         run: |
@@ -38,14 +38,14 @@ jobs:
 
           themes = {
               "contribution-snake.svg": (
-                  "#F8FBFF", "#EDF4FF", "#CDDBF0", "#1D4ED8", "#0284C7", "#0369A1",
+                  "#FFFFFF", "#F6F8FA", "#D0D7DE", "#1F883D", "#4AC26B", "#656D76",
               ),
               "contribution-snake-dark.svg": (
-                  "#0E192B", "#121F36", "#293E5F", "#38BDF8", "#67E8F9", "#7DD3FC",
+                  "#0D1117", "#151B23", "#30363D", "#3FB950", "#7EE787", "#9198A1",
               ),
           }
 
-          for filename, (background, tint, border, blue, cyan, glow) in themes.items():
+          for filename, (background, tint, border, green, highlight, label) in themes.items():
               path = Path("assets") / filename
               svg = path.read_text(encoding="utf-8")
               dimensions = re.search(
@@ -55,12 +55,34 @@ jobs:
               if dimensions is None or "</style>" not in svg:
                   raise ValueError(f"Unexpected SVG layout in {path}")
               left, top, width, height = map(int, dimensions.groups())
-              height += 16
+              cell_size = -left
+              left -= 42
+              width += 42
+              height += 32
+
+              weekdays = ("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
+              weekday_labels = "".join(
+                  f'<text x="-23" y="{row * cell_size + cell_size / 2 + 4}"'
+                  f' text-anchor="end">{day}</text>'
+                  for row, day in enumerate(weekdays)
+              )
+              legend_right = left + width - 24
+              legend_y = top + height - 24
+              swatches = "".join(
+                  f'<rect x="{legend_right - 120 + i * 18}" y="{legend_y - 10}"'
+                  f' width="13" height="13" rx="3" style="fill:var(--{color})"'
+                  f' stroke="{border}"/>'
+                  for i, color in enumerate(("ce", "c1", "c2", "c3", "c4"))
+              )
 
               styles = f"""
               .c {{ rx: 3px; ry: 3px; stroke: none; }}
-              .s {{ filter: drop-shadow(0 0 2px {glow}); }}
-              .s.s0 {{ fill: url(#snake-head) {blue}; }}
+              .calendar-labels {{
+                fill: {label};
+                font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+              }}
+              .s {{ filter: drop-shadow(0 0 2px {green}); }}
+              .s.s0 {{ fill: url(#snake-head) {green}; }}
               .s.s2 {{ opacity: .85; }}
               .s.s3 {{ opacity: .7; }}
               @media (prefers-reduced-motion: reduce) {{
@@ -75,12 +97,19 @@ jobs:
                   <stop offset="1" stop-color="{tint}"/>
                 </linearGradient>
                 <linearGradient id="snake-head" x2="100%" y2="100%">
-                  <stop stop-color="{cyan}"/>
-                  <stop offset="1" stop-color="{blue}"/>
+                  <stop stop-color="{highlight}"/>
+                  <stop offset="1" stop-color="{green}"/>
                 </linearGradient>
               </defs>
               <rect x="{left + 1}" y="{top + 1}" width="{width - 2}" height="{height - 2}" rx="18"
                     fill="url(#calendar-panel)" stroke="{border}"/>
+              <g class="calendar-labels">
+                {weekday_labels}
+                <text x="{left + 24}" y="{legend_y}">Last 12 months</text>
+                <text x="{legend_right - 128}" y="{legend_y}" text-anchor="end">Less</text>
+                {swatches}
+                <text x="{legend_right}" y="{legend_y}" text-anchor="end">More</text>
+              </g>
               """
               svg = svg.replace(
                   dimensions.group(),
