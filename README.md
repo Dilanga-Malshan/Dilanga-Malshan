@@ -11,6 +11,16 @@
   <a href="https://www.linkedin.com/in/diianga-malshan-7b5231282/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white" alt="Connect with Dilanga Malshan on LinkedIn" /></a>
 </p>
 
+## GitHub contributions
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/contribution-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="assets/contribution-snake.svg" />
+    <img src="assets/contribution-snake.svg" alt="Animated snake moving across Dilanga Malshan’s GitHub contribution calendar" width="100%" />
+  </picture>
+</p>
+
 ## About
 
 I build AI-powered applications, backend APIs, and web experiences, with a focus on solving practical problems through reliable software. Based in **Sri Lanka** 🇱🇰.
@@ -49,14 +59,6 @@ I build AI-powered applications, backend APIs, and web experiences, with a focus
 </p>
 
 <sub>Language statistics reflect public repository code, not proficiency. Cards are provided by external services and may occasionally be unavailable.</sub>
-
-## GitHub contributions
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/contribution-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="assets/contribution-snake.svg" />
-  <img src="assets/contribution-snake.svg" alt="Animated snake moving across Dilanga Malshan’s GitHub contribution calendar" width="100%" />
-</picture>
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&amp;color=0:0D1117,50:164E63,100:38BDF8&amp;height=100&amp;section=footer" alt="" width="100%" />
